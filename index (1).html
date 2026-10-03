@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hocico | Comida natural para perros</title>
+  <meta name="description" content="Croquetas para perros con ingredientes reales. Elige por edad y calcula la ración diaria de tu perro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <a class="logo" href="#inicio">Hocico</a>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#racion">Ración diaria</a>
+      <a href="#contacto">Pedidos</a>
+    </nav>
+    <button class="cart" id="cartBtn" aria-label="Pedido actual">
+      Pedido <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-text">
+        <h1>Lo que come tu perro importa.</h1>
+        <p>Croquetas hechas con carne, pescado y verduras reales. Sin colorantes, sin harinas de relleno.</p>
+        <a class="btn" href="#productos">Ver recetas</a>
+      </div>
+      <div class="bowl" aria-hidden="true">
+        <div class="bowl-dog">🐕</div>
+        <div class="bowl-food">
+          <span>🍗</span><span>🥕</span><span>🐟</span><span>🥩</span><span>🍠</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="productos">
+      <h2>Elige por etapa de vida</h2>
+      <div class="filters" role="group" aria-label="Filtrar productos">
+        <button class="chip active" data-filter="todos">Todos</button>
+        <button class="chip" data-filter="cachorro">Cachorro</button>
+        <button class="chip" data-filter="adulto">Adulto</button>
+        <button class="chip" data-filter="senior">Senior</button>
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="section calc" id="racion">
+      <div>
+        <h2>¿Cuánto debe comer hoy?</h2>
+        <p>Pon el peso y la etapa de tu perro. Es una guía general; si tiene alguna condición de salud, consulta a su veterinario.</p>
+      </div>
+      <div class="calc-box">
+        <label for="peso">Peso del perro (kg)</label>
+        <input type="number" id="peso" min="1" max="90" value="10">
+        <label for="etapa">Etapa</label>
+        <select id="etapa">
+          <option value="0.05">Cachorro</option>
+          <option value="0.025" selected>Adulto</option>
+          <option value="0.02">Senior</option>
+        </select>
+        <button class="btn" id="calcBtn">Calcular ración</button>
+        <p class="result" id="resultado" aria-live="polite">Tu resultado aparecerá aquí.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <h2>Haz tu pedido</h2>
+      <form id="orderForm" class="form">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required>
+        <label for="telefono">Teléfono o WhatsApp</label>
+        <input type="tel" id="telefono" required>
+        <button class="btn" type="submit">Enviar pedido</button>
+        <p class="result" id="formMsg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hocico &copy; <span id="year"></span>. Hecho con cariño para perros.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
